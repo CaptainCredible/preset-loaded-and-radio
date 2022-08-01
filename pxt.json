@@ -1,5 +1,5 @@
 {
-    "name": "preset loaded and radio",
+    "name": "preset loaded and radio ",
     "description": "",
     "dependencies": {
         "core": "*",
@@ -16,7 +16,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "4.0.18",
+        "target": "5.0.12",
         "targetId": "microbit"
     },
     "supportedTargets": [
