@@ -5,7 +5,7 @@ control.onEvent(1001, 1, function () {
         chords[step][index2] + (12 + transpose),
         1000,
         127,
-        SynthPreset.Preset1
+        SynthPreset.Sound1
         )
         led.toggle(2, index2)
         basic.pause(333)
@@ -15,7 +15,7 @@ control.onEvent(1001, 1, function () {
         chords[step][index3] + (24 + transpose),
         1000,
         127,
-        SynthPreset.Preset1
+        SynthPreset.Sound1
         )
         led.toggle(2, 4 - index3)
         basic.pause(333)
@@ -32,7 +32,7 @@ control.onEvent(1000, 0, function () {
         chords[step][index] + transpose,
         1000,
         127,
-        SynthPreset.User1
+        SynthPreset.Sound1
         )
     }
 })
@@ -132,8 +132,8 @@ chords = [
 [48, 52, 55],
 [43, 47, 50]
 ]
-synthBlocks.importPresetString(SynthUserPreset.User1, "{ OscType::Pulse, OscType::Pulse, 0.506000, 0.496000, 0.544000, 0.500000, -0.064000, 0.300000, 0.300000, 0.000000, FilterType::LPF, 0.132000, 0.000000, 0.504000, 0.232000, 0.000000, 0.760000, 1.440000, 0.540000, 1.140000, OscType::Triangle, 0.420000, 3.800000, 0.096000, 0.464000 }")
-orchestra.setParameter(SynthUserPreset.User1, SynthParameter.VibratoFreq, 10)
+synthBlocks.importPresetString(SynthPreset.Sound1, "{ OscType::Pulse, OscType::Pulse, 0.506000, 0.496000, 0.544000, 0.500000, -0.064000, 0.300000, 0.300000, 0.000000, FilterType::LPF, 0.132000, 0.000000, 0.504000, 0.232000, 0.000000, 0.760000, 1.440000, 0.540000, 1.140000, OscType::Triangle, 0.420000, 3.800000, 0.096000, 0.464000 }")
+orchestra.setParameter(SynthPreset.Sound1, SynthParameter.VibratoFreq, 10)
 loops.everyInterval(4000, function () {
     step += 1
     step = step % 4
@@ -168,10 +168,10 @@ basic.forever(function () {
     if (twonk < 0) {
         twonk = 0
     }
-    orchestra.setParameter(SynthUserPreset.User1, SynthParameter.VibratoAmount, twonk + 0)
+    orchestra.setParameter(SynthPreset.Sound1, SynthParameter.VibratoAmount, twonk + 0)
     tweak = Math.map(input.acceleration(Dimension.X), 0, 1024, 0, 1)
     if (tweak < 0) {
         tweak = 0
     }
-    orchestra.setParameter(SynthUserPreset.User1, SynthParameter.OscFm, tweak + 0)
+    orchestra.setParameter(SynthPreset.Sound1, SynthParameter.OscFm, tweak + 0)
 })
